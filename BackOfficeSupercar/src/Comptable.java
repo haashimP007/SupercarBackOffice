@@ -9,6 +9,12 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * 
+ * @author Haashim Potyram
+ *
+ */
+
 public class Comptable {
 
 	private JFrame frame;
@@ -42,7 +48,7 @@ public class Comptable {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 800, 500);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblComptabilite = new JLabel("Comptabilit\u00E9");
@@ -56,8 +62,8 @@ public class Comptable {
 		btnListeDesFournisseurs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				InterFournisseur f = new InterFournisseur();
-				f.NewFournisseur();
+				/*InterFournisseur f = new InterFournisseur();
+				f.NewFournisseur();*/
 			}
 		});
 		btnListeDesFournisseurs.setForeground(Color.BLUE);
@@ -69,8 +75,8 @@ public class Comptable {
 		btnListeDesVentes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				Vente V = new Vente();
-				V.NewVente();
+				/*Vente V = new Vente();
+				V.NewVente();*/
 			}
 		});
 		btnListeDesVentes.setForeground(Color.BLUE);

@@ -1,5 +1,6 @@
 import java.awt.EventQueue;
 
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -11,11 +12,18 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+/**
+ * 
+ * @author Haashim Potyram
+ *
+ */
+
 public class LoginComptable {
 
 	private JFrame frame;
 	private JTextField textUsername;
 	private JTextField textPassword;
+	private int validationCounter = 0;
 
 	/**
 	 * Launch the application.
@@ -47,7 +55,7 @@ public class LoginComptable {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.YELLOW);
 		frame.setBounds(100, 100, 750, 550);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Bienvenue Dans le departement Comptable");
@@ -102,6 +110,26 @@ public class LoginComptable {
 					JOptionPane.showMessageDialog(null, "Invalid Login Details","Login Error",JOptionPane.ERROR_MESSAGE);
 					textUsername.setText(null);
 					textPassword.setText(null);
+					
+					///////////////Junit Testing/////////////////
+					
+					/*public boolean isValid(String username, String password,String confirm)
+					throws EmptyException
+					{
+						if (username.length() == 0) throw new EmptyloginException();
+						if (password.equals("") || confirm.equals("")) throw new EmptyPasswordException();
+						if (username.length() < 3) return false;
+						if (password != confirm) return false;
+						validationCounter++;
+						return true;										
+						
+					}
+					
+					public int getValidationCounter() {
+						
+						return validationCounter;
+					}*/
+					
 				}
 				
 			}

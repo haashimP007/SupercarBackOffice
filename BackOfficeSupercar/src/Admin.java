@@ -1,5 +1,6 @@
 import java.awt.EventQueue;
 
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
@@ -11,6 +12,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 import javax.swing.JFrame;
+import javax.swing.SwingConstants;
+
+/**
+ * 
+ * @author Haashim Potyram
+ *
+ */
 
 public class Admin {
 
@@ -19,7 +27,7 @@ public class Admin {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void NewAcceuil() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -48,12 +56,8 @@ public class Admin {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblBackGround = new JLabel("");
-		lblBackGround.setIcon(new ImageIcon(""));
-		lblBackGround.setBounds(0, 0, 1186, 691);
-		frame.getContentPane().add(lblBackGround);
-		
 		JLabel lblBienvenue = new JLabel("Bienvenue a l'Admin");
+		lblBienvenue.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBienvenue.setBackground(Color.GREEN);
 		lblBienvenue.setForeground(Color.BLUE);
 		lblBienvenue.setFont(new Font("Arial Black", Font.BOLD, 20));
@@ -64,6 +68,9 @@ public class Admin {
 		btnAdministration.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+			
+				/*Administration ad = new Administration();
+				ad.NewAdministration();*/
 				
 			}
 		});
@@ -113,6 +120,13 @@ public class Admin {
 		btnVente.setFont(new Font("Arial", Font.BOLD, 21));
 		btnVente.setBounds(495, 455, 211, 46);
 		frame.getContentPane().add(btnVente);
+		
+		JButton btnEntrepots = new JButton("Entrepots");
+		btnEntrepots.setBackground(Color.CYAN);
+		btnEntrepots.setForeground(Color.BLUE);
+		btnEntrepots.setFont(new Font("Arial", Font.BOLD, 25));
+		btnEntrepots.setBounds(495, 543, 211, 46);
+		frame.getContentPane().add(btnEntrepots);
 	}
 
 }
