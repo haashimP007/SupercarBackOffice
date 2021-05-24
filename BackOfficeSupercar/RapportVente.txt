@@ -232,3 +232,12 @@ kasim
  Prix : 500000 
  Date : 2021/09/23 
  Date Du Rapport : 04/05/21 10:12:16
+ Client :Porto Jimy 
+ Vendeur : Kimmel Sam 
+ Marque : volswagen 
+ Model : classic 
+ Moteur : 098345678 
+ Couleur : Blanche 
+ Prix : GiTt0wKmiYI= 
+ Date : 2021-05-21 
+ Date Du Rapport : 21/05/21 17:31:40
