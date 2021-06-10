@@ -618,10 +618,10 @@ public class Commande {
 						pst.setString(4, capacite);
 						pst.setString(5, pays);
 						pst.setString(6, fournisseur);
-						pst.setString(8, entrepot);
-						pst.setString(9, quantite);
-						pst.setString(10, date);
-						pst.setString(11, id);
+						pst.setString(7, entrepot);
+						pst.setString(8, quantite);
+						pst.setString(9, date);
+						pst.setString(10, id);
 						pst.executeUpdate();
 						JOptionPane.showMessageDialog(null, "Record Updateddd!!!!!");
 					    }

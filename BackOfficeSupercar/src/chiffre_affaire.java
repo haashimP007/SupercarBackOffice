@@ -1,12 +1,10 @@
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.SwingConstants;
-
-import net.proteanit.sql.DbUtils;
 
 import java.awt.Font;
 import java.sql.Connection;
@@ -16,18 +14,23 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JTextField;
-import javax.swing.JComboBox;
+
+import net.proteanit.sql.DbUtils;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JComboBox;
+import javax.swing.SwingConstants;
 
 public class chiffre_affaire {
 
 	private JFrame frame;
 	private JTextField txtdate;
-	private String date;
 	@SuppressWarnings("rawtypes")
 	private JComboBox comboBox;
+	private String date;
 
 	/**
 	 * Launch the application.
@@ -44,7 +47,7 @@ public class chiffre_affaire {
 			}
 		});
 	}
-	
+
 	Connection con;
 	PreparedStatement pst;
 	ResultSet rs;
@@ -113,7 +116,6 @@ public class chiffre_affaire {
 		}
 	}
 
-
 	/**
 	 * Create the application.
 	 */
@@ -123,64 +125,69 @@ public class chiffre_affaire {
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Initialise the contents of the frame.
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 600, 500);
+		frame.setBounds(100, 100, 749, 731);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-		
-		JLabel lblChiifreaffaire = new JLabel("Chiffre_affaire");
-		lblChiifreaffaire.setFont(new Font("Arial", Font.BOLD, 20));
-		lblChiifreaffaire.setHorizontalAlignment(SwingConstants.CENTER);
-		lblChiifreaffaire.setBounds(215, 10, 216, 41);
-		frame.getContentPane().add(lblChiifreaffaire);
-		
-		JLabel lbldate = new JLabel("Entrez une date(aaaa/mm/jj)");
-		lbldate.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lbldate.setBounds(37, 72, 240, 41);
-		frame.getContentPane().add(lbldate);
-		
+
+		JPanel panel = new JPanel();
+		frame.getContentPane().add(panel, BorderLayout.CENTER);
+		panel.setLayout(null);
+
+		JLabel lblDate = new JLabel("Calcul du Chiffre d'affaires");
+		lblDate.setBounds(229, 22, 331, 25);
+		lblDate.setFont(new Font("Tahoma", Font.BOLD, 20));
+		panel.add(lblDate);
+
 		txtdate = new JTextField();
-		txtdate.setBounds(343, 72, 170, 41);
-		frame.getContentPane().add(txtdate);
+		txtdate.setHorizontalAlignment(SwingConstants.CENTER);
+
+		txtdate.setBounds(229, 158, 216, 25);
+		panel.add(txtdate);
 		txtdate.setColumns(10);
-		
-		JLabel lblchoix = new JLabel("Faites votre choix");
-		lblchoix.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblchoix.setBounds(25, 152, 159, 41);
-		frame.getContentPane().add(lblchoix);
-		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(254, 154, 170, 41);
-		frame.getContentPane().add(comboBox);
-		comboBox.addItem("jour");
-		comboBox.addItem("mois");
-		comboBox.addItem("annee");
-		
-		JButton btnAfficher = new JButton("Afficher");
-		btnAfficher.addActionListener(new ActionListener() {
+
+		JButton btnSend = new JButton("Afficher");
+		btnSend.setBounds(229, 195, 216, 21);
+		btnSend.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				date = txtdate.getText();
 				table_load(comboBox.getSelectedItem().toString());
 			}
 		});
-		btnAfficher.setFont(new Font("Tahoma", Font.BOLD, 17));
-		btnAfficher.setBounds(254, 264, 134, 41);
-		frame.getContentPane().add(btnAfficher);
+		panel.add(btnSend);
+
+		JScrollPane scrollPane = new JScrollPane(table, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+				JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		scrollPane.setBounds(296, 256, 84, 44);
+		panel.add(scrollPane);
+
+		table = new JTable();
+		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+		scrollPane.setViewportView(table);
+
+		comboBox = new JComboBox();
+		comboBox.setBounds(265, 97, 141, 21);
+		panel.add(comboBox);
+		comboBox.addItem("jour");
+		comboBox.addItem("mois");
+		comboBox.addItem("annee");
+
+		JLabel lblEntrezUneDate = new JLabel("Entrez une date (aaaa-mm-jj)");
+		lblEntrezUneDate.setHorizontalAlignment(SwingConstants.CENTER);
+		lblEntrezUneDate.setBounds(229, 130, 216, 16);
+		panel.add(lblEntrezUneDate);
 		
-		JButton btnExit = new JButton("Exit");
-		btnExit.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				System.exit(0);
-			}
-		});
-		btnExit.setFont(new Font("Tahoma", Font.BOLD, 17));
-		btnExit.setBounds(280, 346, 85, 41);
-		frame.getContentPane().add(btnExit);
+		JLabel lblFaitesVotreChoix = new JLabel("Faites votre choix");
+		lblFaitesVotreChoix.setHorizontalAlignment(SwingConstants.CENTER);
+		lblFaitesVotreChoix.setBounds(229, 69, 216, 16);
+		panel.add(lblFaitesVotreChoix);
+		
+		JLabel lblLeChiffreDaffaire = new JLabel("Le chiffre d'affaire est : ");
+		lblLeChiffreDaffaire.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLeChiffreDaffaire.setBounds(110, 273, 216, 16);
+		panel.add(lblLeChiffreDaffaire);
 	}
 }

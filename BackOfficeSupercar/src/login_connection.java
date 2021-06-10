@@ -226,6 +226,30 @@ public class login_connection {
 		
 	}
 		
+		if (account.getAccountType().contains("Administration")) {
+			
+
+			JLabel lblHome = new JLabel("Administration");
+			lblHome.setFont(new Font("Calibri Light", Font.PLAIN, 45));
+			lblHome.setHorizontalAlignment(SwingConstants.CENTER);
+			lblHome.setBounds(366, 23, 459, 46);
+			frame.getContentPane().add(lblHome);
+		
+			JButton btnAdministration = new JButton("Administration");
+			btnAdministration.setFont(new Font("Dialog", Font.BOLD, 16));
+			btnAdministration.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					login_connection.this.frame.setVisible(false);
+					Administration.main(login);
+				}
+			});
+			btnAdministration.setFont(new Font("Dialog", Font.BOLD, 16));
+			btnAdministration.setBounds(149, 404, 242, 86);
+			frame.getContentPane().add(btnAdministration);
+			
+			
+		}
+		
 		/**
 		 *  Privilege Manager
 		 */
@@ -443,20 +467,7 @@ public class login_connection {
 		
 		btnLogOut.setBounds(940, 599, 122, 46);
 		frame.getContentPane().add(btnLogOut);
-		
-		JButton btnAdministration = new JButton("Administration");
-		btnAdministration.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				login_connection.this.frame.setVisible(false);
-				Administration.main(login);
 				
-			}
-		});
-		btnAdministration.setFont(new Font("Arial", Font.BOLD, 24));
-		btnAdministration.setBounds(664, 210, 203, 77);
-		frame.getContentPane().add(btnAdministration);
-		
-		
 		
 	}
 }

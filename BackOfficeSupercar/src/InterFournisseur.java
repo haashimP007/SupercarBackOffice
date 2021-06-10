@@ -185,12 +185,12 @@ public class InterFournisseur {
      				table.getColumnModel().getColumn(0).setPreferredWidth(75); // ID
      				table.getColumnModel().getColumn(1).setPreferredWidth(200); //Nom
      				table.getColumnModel().getColumn(2).setPreferredWidth(200);  // Adresse
-     				table.getColumnModel().getColumn(3).setPreferredWidth(275); // Email
+     				table.getColumnModel().getColumn(3).setPreferredWidth(280); // Email
      				table.getColumnModel().getColumn(4).setPreferredWidth(200); // Portable
      				table.getColumnModel().getColumn(5).setPreferredWidth(100); // Type
      				table.getColumnModel().getColumn(6).setPreferredWidth(200); // Pays
-     				table.getColumnModel().getColumn(7).setPreferredWidth(250); // Entrepot
-     				table.getColumnModel().getColumn(8).setPreferredWidth(200); // Quantite
+     				table.getColumnModel().getColumn(7).setPreferredWidth(290); // Entrepot
+     				table.getColumnModel().getColumn(8).setPreferredWidth(120); // Quantite
      				table.getColumnModel().getColumn(9).setPreferredWidth(150); // Quotation
      				table.getColumnModel().getColumn(10).setPreferredWidth(100); // Devise
      				table.getColumnModel().getColumn(11).setPreferredWidth(200); // Paiement
@@ -249,7 +249,7 @@ public class InterFournisseur {
 		account.DatabaseConnexion(login, null, null, frame);
 		System.out.print(account.getId());
 		frame = new JFrame();
-		frame.setBounds(100, 100, 1200, 900);
+		frame.setBounds(100, 100, 1300, 900);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -625,9 +625,9 @@ public class InterFournisseur {
 				    
 				    final Pattern QUOTATION_PATTERN = Pattern.compile(QUOTATION_REGEX);
 				    
-                    final String TAUX_REGEX = "^[0-9]+([',. -])*$";
+                    /*final String TAUX_REGEX = "^[0-9]+([',. -])*$";
 				    
-				    final Pattern TAUX_PATTERN = Pattern.compile(TAUX_REGEX);
+				    final Pattern TAUX_PATTERN = Pattern.compile(TAUX_REGEX);*/
 				    
                     /*final String PAIEMENT_REGEX = "^[0-9]+([',. -])*$";
 				    
@@ -669,9 +669,9 @@ public class InterFournisseur {
 				    	JOptionPane.showMessageDialog(null, "Le format du quotation du fournisseur n'est pas bon,re-inserez le quotation du fournisseur s'il vous plait");
 				    }
 				    
-				    if( TAUX_PATTERN.matcher(devise).matches()  == false) {
+				    /*if( TAUX_PATTERN.matcher(devise).matches()  == false) {
 				    	JOptionPane.showMessageDialog(null, "Le format du devise n'est pas bon,re-inserez le devise des achats s'il vous plait");
-				    }
+				    }*/
 				    
 				    /*if( PAIEMENT_PATTERN.matcher(Decrypt_Paiement(paiement)).matches()  == false) {
 				    	JOptionPane.showMessageDialog(null, "Le format du paiement n'est pas bon,re-calculer le paiement du fournisseur s'il vous plait");
@@ -685,8 +685,7 @@ public class InterFournisseur {
 				                PAYS_PATTERN.matcher(pays).matches()&&
 				                ENTREPOT_PATTERN.matcher(entrepot).matches()&&
 				                QUANTITE_PATTERN.matcher(quantite).matches()&&
-				                QUOTATION_PATTERN.matcher(Decrypt_Paiement(quotation)).matches()&&
-				                TAUX_PATTERN.matcher(devise).matches()) {
+				                QUOTATION_PATTERN.matcher(Decrypt_Paiement(quotation)).matches()) {
 					
 				pst = con.prepareStatement("update comptable_fournisseur set nom = ?,adresse = ?,email = ?,portable = ?,type = ?,pays = ?,entrepot = ?,quantite = ?,quotation = ?,devise = ?,paiement = ? where id = ?");
 				
@@ -910,7 +909,7 @@ public class InterFournisseur {
 		frame.getContentPane().add(btnExit);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(415, 72, 749, 540);
+		scrollPane.setBounds(415, 72, 803, 540);
 		frame.getContentPane().add(scrollPane);
 		
 		table = new JTable();

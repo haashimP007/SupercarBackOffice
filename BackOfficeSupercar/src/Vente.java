@@ -453,7 +453,7 @@ public class Vente {
 				 date = txtdate.getText();
 				 
 				 JFileChooser dialog = new JFileChooser();
-					dialog.setSelectedFile(new File(client+"_Vendeur"+".pdf"));
+					dialog.setSelectedFile(new File(client+"_Voiture"+".pdf"));
 					int dialogResult = dialog.showSaveDialog(null);
 					if (dialogResult==JFileChooser.APPROVE_OPTION) {
 						String filePath = dialog.getSelectedFile().getPath();
@@ -465,11 +465,11 @@ public class Vente {
 							PdfWriter  myWriter = PdfWriter.getInstance(myDoc, new FileOutputStream(filePath));
 							myDoc.open();
 							
-							myDoc.add(new Paragraph("Vendeur", FontFactory.getFont(FontFactory.TIMES_BOLD,20)));
+							myDoc.add(new Paragraph("Voiture", FontFactory.getFont(FontFactory.TIMES_BOLD,20)));
 							
 							myDoc.add(new Paragraph(" ", FontFactory.getFont(FontFactory.HELVETICA,20)));
 							
-							myDoc.add(new Paragraph("Detail de la vente", FontFactory.getFont(FontFactory.HELVETICA,15)));
+							myDoc.add(new Paragraph("Detail de la voiture", FontFactory.getFont(FontFactory.HELVETICA,15)));
 							myDoc.add(new Paragraph("Client: "+client+ " ", FontFactory.getFont(FontFactory.HELVETICA,15)));
 							myDoc.add(new Paragraph("Vendeur: "+vendeur+" ", FontFactory.getFont(FontFactory.HELVETICA,15)));
 							myDoc.add(new Paragraph("Marque: "+marque+" ", FontFactory.getFont(FontFactory.HELVETICA,15)));
